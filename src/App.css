@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: 15px   ;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav h1{
+    color: blueviolet;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search-form{
+    flex: 1;
+    max-width: 600px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 0 20px;
+    box-shadow: 0px 0px 5px #a5a5a5;
 }
 
-.App-link {
-  color: #61dafb;
+.search-form input{ 
+    max-width: 160px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    background-color: transparent;
+    
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-form button{
+    background-color: transparent;
+    border: none;
+}
+
+.search-icon{
+    color: rgb(98, 97, 97);
+    font-size: 20px;
+}
+
+
+.theme{
+    width: 60px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0px 0px 5px #a5a5a5;
+    position: relative;
+}
+
+.circle{
+    width: 26px;
+    aspect-ratio: 1/1;
+    background-color: blueviolet;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 4px;
+    transition: 0.2s;
+}
+
+.moon-icon{
+    display: none;
+}
+
+@media only screen and (max-width: 950px) {
+    nav h1 {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    nav {
+        height: 70px;
+    }
+    .search-form input {
+        font-size: 16px;
+        max-width: 125px;
+    }
+    .search-form {
+        height: 30px;
+        padding: 0 10px;
+    }
+    .theme {
+        width: 36px;
+        height: 20px;
+    }
+    .circle {
+        width: 20px;
+        left: 0;
+    }
+    nav h1 {
+        max-width: 80px;
+        height: 20px;
+        overflow-y: hidden;
+    }
+    .search-icon {
+        display: none;
+    }
 }
