@@ -40,7 +40,6 @@ nav h1{
 }
 
 .search-form button{
-    background-color: transparent;
     border: none;
 }
 
@@ -59,6 +58,7 @@ nav h1{
     align-items: center;
     box-shadow: inset 0px 0px 5px #a5a5a5;
     position: relative;
+    transition: 0.5s;
 }
 
 .circle{
@@ -71,17 +71,52 @@ nav h1{
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 4px;
-    transition: 0.2s;
+    transition: 0.5s !important;
 }
 
-.moon-icon{
-    display: none;
+.dark {
+    background-color: #111010;
+}
+
+.dark .temp-in-hours-wrapper {
+    background-color: #111010;
+    box-shadow: rgba(248,243,243,0.86) 0px 2px 8px 0px;
+    /* box-shadow: rgba(248,243,243,0.86) 0px 7px 29px 0px; */
+    /* box-shadow: 0px 0px 30px rgba(248,243,243,0.86); */
+}
+
+.dark .temp-in-hours-wrapper .day_name, .max-temp {
+    color: #fff;
+}
+
+.dark .current-weather-add-info {
+    background-color: #111010;
+    box-shadow: rgba(248,243,243,0.86) 0px 2px 8px 0px;
+    color: #fff;
+}
+
+.dark .current-weather-hourly {
+    background-color: #111010;
+    box-shadow: rgba(248,243,243,0.86) 0px 2px 8px 0px;
+}
+
+.dark .current-weather-indicator {
+    box-shadow: rgba(248,243,243,0.86) 0px 2px 8px 0px;
+    border: 1px solid #fff;
+}
+
+.dark .weather-banner {
+    box-shadow: rgba(248,243,243,0.86) 0px 2px 8px 0px;
+    border: 1px solid #fff;
+}
+
+.dark, .light {
+    padding-bottom: 20px;
 }
 
 @media only screen and (max-width: 950px) {
     nav h1 {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
@@ -103,7 +138,7 @@ nav h1{
     }
     .circle {
         width: 20px;
-        left: 0;
+        /* left: 0; */
     }
     nav h1 {
         max-width: 80px;

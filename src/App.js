@@ -13,6 +13,7 @@ function App() {
   const API_KEY = "644f6ce0ca9e401ebb891832211707";
   const [city, setCity] = useState('')
   const [cityData, setCityData] = useState(null)
+  const [theme, setTheme] = useState(true)
   const cityInput = useRef('')
   const dispatch = useDispatch()
 
@@ -29,24 +30,31 @@ function App() {
     e.preventDefault()
     setCity(cityInput.current.value);
   }
+
+  console.log(theme);
+  const handleTheme = () => {
+    setTheme(!theme)
+    localStorage.setItem('theme', theme)
+  }
   return (
-    <div className='container'>
-      <nav>
-        <h1>Weather App</h1>
-        <form onSubmit={handleFormSubmit} className='search-form'>
-          <input ref={cityInput} type="text" placeholder="Search any city..." id="city" />
-          <button><IoSearch className='search-icon' /></button>
-        </form>
-        <div className="theme">
-          <div className="circle">
-            <IoSunnySharp className="sun-icon" />
-            <BsFillMoonFill className="moon-icon" />
+    <div className={theme ? 'light' : 'dark'}>
+      <div className='container'>
+        <nav>
+          <h1>Weather App</h1>
+          <form onSubmit={handleFormSubmit} className='search-form'>
+            <input ref={cityInput} type="text" placeholder="Search any city..." id="city" />
+            <button><IoSearch className='search-icon' /></button>
+          </form>
+          <div onClick={handleTheme} className="theme">
+            <div className="circle" style={theme ? { left: "0" } : { right: "0" }}>
+              {theme ? <IoSunnySharp className="sun-icon" /> : <BsFillMoonFill className="moon-icon" />}
+            </div>
           </div>
-        </div>
-      </nav>
-      <Hero {...cityData}/>
-      <InHours {...cityData}/>
-      <Categories {...cityData}/>
+        </nav>
+        <Hero {...cityData} />
+        <InHours {...cityData} />
+        <Categories {...cityData} />
+      </div>
     </div>
   );
 }
